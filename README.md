@@ -3,7 +3,7 @@
 A comprehensive guide to implementing cybersecurity solutions using Python, covering everything from basic reconnaissance to advanced penetration testing and security hardening.
 
 ## 📚 About The Book
-
+## TARGET PMR 
 This book provides a practical approach to cybersecurity using Python, designed for both beginners and experienced professionals. Through hands-on examples and real-world scenarios, readers will learn how to develop and implement security solutions across various domains of cybersecurity.
 
 ## 🎯 Learning Objectives
