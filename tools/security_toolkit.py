@@ -36,6 +36,8 @@ class SecurityToolkit:
         if tool_type not in self._tools:
             return SecurityToolResult(False, None, f"Unsupported tool type: {tool_type}")
 
+
+
         return self._tools[tool_type].execute(operation, target, **kwargs)
 
 
@@ -50,13 +52,33 @@ def main():
     # Create toolkit instance
     toolkit = SecurityToolkit()
 
-    # Example network analysis
+    # Example network analysis - NSLookup
     result = toolkit.execute_tool('network', 'nslookup', 'www.president.gospmr.org')
     print(f"NSLookup result: {result}")
-
+    #
+    # Example network analysis - WHOIS
     result = toolkit.execute_tool('network', 'whois', 'www.president.gospmr.org')
     print(f"WHOIS result: {result}")
 
+    # # Perform a DIG query for A record
+    # result = toolkit.execute_tool('network', 'dig', 'www.president.gospmr.org', type="A")
+    # print(f"DIG A record result: {result}")
+    # #
+    # # Perform a DIG query for NS record
+    # result = toolkit.execute_tool('network', 'dig', 'www.president.gospmr.org', type="A")
+    # print(f"DIG NS record result: {result}")
+    # Perform a DIG query for NS record
+    # result = toolkit.execute_tool('network', 'dig', 'www.president.gospmr.org', type="NS")
+    # print(f"DIG NS record result: {result}")
 
-if __name__ == "__main__":
+    # Perform a Reverse DNS Lookup (reverse lookup)
+    result = toolkit.execute_tool('network', 'reverse_lookup', '217.19.216.168')  # Example with Google's DNS IP
+    print(f"Reverse lookup result for 217.19.216.168: {result}")
+
+    # Example network analysis - NSLookup
+    result = toolkit.execute_tool('network', 'nslookup', 'www.president.gospmr.org')
+    print(f"NSLookup result: {result}")
+
+
+if __name__ == '__main__':
     main()
