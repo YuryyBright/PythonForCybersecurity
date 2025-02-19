@@ -4,6 +4,7 @@ from typing import Dict, Any
 from core.network import NetworkAnalyzer
 from core.forensics import ForensicsAnalyzer
 from tools.core.base import SecurityToolResult
+from tools.core.google_dorks import GoogleDorks
 
 
 class SecurityToolkit:
@@ -13,7 +14,7 @@ class SecurityToolkit:
         self._tools = {
             'network': NetworkAnalyzer(),
             'forensics': ForensicsAnalyzer(),
-            # Add more tools here
+            'google_dorks': GoogleDorks(),  # Adding Google Dorks tool to the toolkit
         }
 
     def execute_tool(self,
@@ -52,13 +53,13 @@ def main():
     # Create toolkit instance
     toolkit = SecurityToolkit()
 
-    # Example network analysis - NSLookup
-    result = toolkit.execute_tool('network', 'nslookup', 'www.president.gospmr.org')
-    print(f"NSLookup result: {result}")
-    #
-    # Example network analysis - WHOIS
-    result = toolkit.execute_tool('network', 'whois', 'www.president.gospmr.org')
-    print(f"WHOIS result: {result}")
+    # # Example network analysis - NSLookup
+    # result = toolkit.execute_tool('network', 'nslookup', 'www.president.gospmr.org')
+    # print(f"NSLookup result: {result}")
+    # #
+    # # Example network analysis - WHOIS
+    # result = toolkit.execute_tool('network', 'whois', 'www.president.gospmr.org')
+    # print(f"WHOIS result: {result}")
 
     # # Perform a DIG query for A record
     # result = toolkit.execute_tool('network', 'dig', 'www.president.gospmr.org', type="A")
@@ -67,17 +68,26 @@ def main():
     # # Perform a DIG query for NS record
     # result = toolkit.execute_tool('network', 'dig', 'www.president.gospmr.org', type="A")
     # print(f"DIG NS record result: {result}")
-    # Perform a DIG query for NS record
+    # # Perform a DIG query for NS record
     # result = toolkit.execute_tool('network', 'dig', 'www.president.gospmr.org', type="NS")
     # print(f"DIG NS record result: {result}")
 
     # Perform a Reverse DNS Lookup (reverse lookup)
-    result = toolkit.execute_tool('network', 'reverse_lookup', '217.19.216.168')  # Example with Google's DNS IP
-    print(f"Reverse lookup result for 217.19.216.168: {result}")
+    # result = toolkit.execute_tool('network', 'reverse_lookup', '217.19.216.168')  # Example with Google's DNS IP
+    # print(f"Reverse lookup result for 217.19.216.168: {result}")
+    #
+    # # Example network analysis - NSLookup
+    # result = toolkit.execute_tool('network', 'nslookup', 'www.president.gospmr.org')
+    # print(f"NSLookup result: {result}")
+    # Create toolkit instance
+    # toolkit = SecurityToolkit()
+    #
+    # Example Google Dorks processing
+    # result = toolkit.execute_tool('google_dorks', 'process_dorks','www.president.gospmr.org')
+    # print(f"Google Dorks result: {result}")
 
-    # Example network analysis - NSLookup
-    result = toolkit.execute_tool('network', 'nslookup', 'www.president.gospmr.org')
-    print(f"NSLookup result: {result}")
+    result = toolkit.execute_tool('google_dorks', 'process_search', 'www.president.gospmr.org', query_string='inurl:"/admin/login"')
+    print(f"Google search result: {result}")
 
 
 if __name__ == '__main__':

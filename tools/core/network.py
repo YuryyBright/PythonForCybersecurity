@@ -103,7 +103,7 @@ class NetworkAnalyzer(SecurityTool):
         except Exception as e:
             raise Exception(f"WHOIS lookup failed for {host}: {str(e)}")
 
-    def _dig_info(self, host: str, record_type: str):
+    def _dig_info(self, host, **kwargs):
         """
         Performs a DIG DNS query for the given host and record type, and returns the results.
 
@@ -117,6 +117,8 @@ class NetworkAnalyzer(SecurityTool):
         Raises:
             Exception: If the DIG query fails.
         """
+        record_type = kwargs['type']
+
         cache_key = f"dig_{host}_{record_type}"
 
         # Check cache first to avoid redundant queries
