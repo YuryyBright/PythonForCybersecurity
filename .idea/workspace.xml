@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d90bfc94-3769-46d7-9202-1f94abd4f3ed" name="Changes" comment="added 4_google_dorks.py 5_google_search.py and the same instrument into security_toolkit.py">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignire" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chapter 2/07_censys_search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chapter 2/08_ipinfo_ip_details.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chapter 2/6_shodan_print_host_details.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/core/censys.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/core/ipinfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/core/shodan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/security_toolkit.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/security_toolkit.py" afterDir="false" />
-    </list>
+    <list default="true" id="d90bfc94-3769-46d7-9202-1f94abd4f3ed" name="Changes" comment="added .env.py 6_shodan_print_host_details.py 07_censys_search.py 08_ipinfo_ip_details.py and the same instrument into security_toolkit.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,7 +217,7 @@
       <workItem from="1739875810592" duration="4646000" />
       <workItem from="1739964824845" duration="4133000" />
       <workItem from="1739988736853" duration="20000" />
-      <workItem from="1740041127346" duration="9557000" />
+      <workItem from="1740041127346" duration="10258000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -262,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739969338959</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added .env.py 6_shodan_print_host_details.py 07_censys_search.py 08_ipinfo_ip_details.py and the same instrument into security_toolkit.py">
+      <option name="closed" value="true" />
+      <created>1740064280065</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740064280065</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +270,8 @@
     <MESSAGE value="structure and who_is" />
     <MESSAGE value="added 2_dig_info.py 3_nslookup_info.py and the same instrument into security_toolkit.py" />
     <MESSAGE value="added 4_google_dorks.py 5_google_search.py and the same instrument into security_toolkit.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="added 4_google_dorks.py 5_google_search.py and the same instrument into security_toolkit.py" />
+    <MESSAGE value="added .env.py 6_shodan_print_host_details.py 07_censys_search.py 08_ipinfo_ip_details.py and the same instrument into security_toolkit.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="added .env.py 6_shodan_print_host_details.py 07_censys_search.py 08_ipinfo_ip_details.py and the same instrument into security_toolkit.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PythonForCybersecurity$01_nslookup.coverage" NAME="01_nslookup Coverage Results" MODIFIED="1739880684451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Chapter 1" />
@@ -283,7 +281,7 @@
     <SUITE FILE_PATH="coverage/PythonForCybersecurity$2_dig_info.coverage" NAME="2_dig_info Coverage Results" MODIFIED="1739881460964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Chapter 2" />
     <SUITE FILE_PATH="coverage/PythonForCybersecurity$google_dorks.coverage" NAME="google_dorks Coverage Results" MODIFIED="1739965197274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/Python for Cybersecurity Cookbook-20250217T111114Z-001/Python for Cybersecurity Cookbook/Code Bundle/Chapter 02 - Passive Reconnaissance" />
     <SUITE FILE_PATH="coverage/PythonForCybersecurity$3_google_dorks.coverage" NAME="3_google_dorks Coverage Results" MODIFIED="1739965710566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Chapter 2" />
-    <SUITE FILE_PATH="coverage/PythonForCybersecurity$security_toolkit.coverage" NAME="security_toolkit Coverage Results" MODIFIED="1740064166891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/PythonForCybersecurity$security_toolkit.coverage" NAME="security_toolkit Coverage Results" MODIFIED="1740064188884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/PythonForCybersecurity$6_shodan_print_host_details.coverage" NAME="6_shodan_print_host_details Coverage Results" MODIFIED="1740045140416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Chapter 2" />
   </component>
 </project>
