@@ -4,7 +4,10 @@ from typing import Dict, Any
 from core.network import NetworkAnalyzer
 from core.forensics import ForensicsAnalyzer
 from tools.core.base import SecurityToolResult
+from tools.core.censys import CensysAnalyzer
 from tools.core.google_dorks import GoogleDorks
+from tools.core.ipinfo import IpinfoAnalyzer
+from tools.core.shodan import ShodanAnalyzer
 
 
 class SecurityToolkit:
@@ -15,6 +18,9 @@ class SecurityToolkit:
             'network': NetworkAnalyzer(),
             'forensics': ForensicsAnalyzer(),
             'google_dorks': GoogleDorks(),  # Adding Google Dorks tool to the toolkit
+            'shodan': ShodanAnalyzer(),
+            # 'censys': CensysAnalyzer(),
+            'ipinfo': IpinfoAnalyzer(),
         }
 
     def execute_tool(self,
@@ -86,9 +92,17 @@ def main():
     # result = toolkit.execute_tool('google_dorks', 'process_dorks','www.president.gospmr.org')
     # print(f"Google Dorks result: {result}")
 
-    result = toolkit.execute_tool('google_dorks', 'process_search', 'www.president.gospmr.org', query_string='inurl:"/admin/login"')
-    print(f"Google search result: {result}")
+    # result = toolkit.execute_tool('google_dorks', 'process_search', 'www.president.gospmr.org', query_string='inurl:"/admin/login"')
+    # print(f"Google search result: {result}")
 
+    # result = toolkit.execute_tool('shodan', 'get_host_details', '217.19.216.168')
+    # print(f"Shodan search result: {result}")
+
+    # result = toolkit.execute_tool('censys', 'get_host_details', '217.19.216.168')
+    # print(f"Shodan search result: {result}")
+
+    result = toolkit.execute_tool('ipinfo', 'get_host_details', '217.19.216.168')
+    print(f"Shodan search result: {result}")
 
 if __name__ == '__main__':
     main()
