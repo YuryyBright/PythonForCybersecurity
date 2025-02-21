@@ -5,6 +5,7 @@ from core.network import NetworkAnalyzer
 from core.forensics import ForensicsAnalyzer
 from tools.core.base import SecurityToolResult
 from tools.core.censys import CensysAnalyzer
+from tools.core.crt_info import CrtshAnalyzer
 from tools.core.google_dorks import GoogleDorks
 from tools.core.ipinfo import IpinfoAnalyzer
 from tools.core.shodan import ShodanAnalyzer
@@ -21,6 +22,7 @@ class SecurityToolkit:
             'shodan': ShodanAnalyzer(),
             # 'censys': CensysAnalyzer(),
             'ipinfo': IpinfoAnalyzer(),
+            'crt_info': CrtshAnalyzer(),
         }
 
     def execute_tool(self,
@@ -101,8 +103,7 @@ def main():
     # result = toolkit.execute_tool('censys', 'get_host_details', '217.19.216.168')
     # print(f"Shodan search result: {result}")
 
-    result = toolkit.execute_tool('ipinfo', 'get_host_details', '217.19.216.168')
-    print(f"Shodan search result: {result}")
+    result = toolkit.execute_tool('crt_info', 'cert_query', 'abc.xyz')
 
 if __name__ == '__main__':
     main()
