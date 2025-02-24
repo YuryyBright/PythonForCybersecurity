@@ -3,6 +3,7 @@ import logging
 from typing import Dict, Any
 from core.network import NetworkAnalyzer
 from core.forensics import ForensicsAnalyzer
+from tools.core.active_rec import ActiveReconnaissance
 from tools.core.base import SecurityToolResult
 from tools.core.censys import CensysAnalyzer
 from tools.core.crt_info import CrtshAnalyzer
@@ -22,7 +23,8 @@ class SecurityToolkit:
             'shodan': ShodanAnalyzer(),
             # 'censys': CensysAnalyzer(),
             'ipinfo': IpinfoAnalyzer(),
-            'crt_info': CrtshAnalyzer(),
+            'crt_ifo': CrtshAnalyzer(),
+            'active_reconnaissance': ActiveReconnaissance(),
         }
 
     def execute_tool(self,
@@ -103,7 +105,14 @@ def main():
     # result = toolkit.execute_tool('censys', 'get_host_details', '217.19.216.168')
     # print(f"Shodan search result: {result}")
 
-    result = toolkit.execute_tool('crt_info', 'cert_query', 'abc.xyz')
+    # result = toolkit.execute_tool('crt_info', 'cert_query', 'abc.xyz')
+
+    #todo fix without target
+    # result = toolkit.execute_tool('active_reconnaissance', 'print_net_connections', target='192.168.127.12')
+
+
+
+    result = toolkit.execute_tool('active_reconnaissance', 'check_traceroute', target='192.168.127.12')
 
 if __name__ == '__main__':
     main()
