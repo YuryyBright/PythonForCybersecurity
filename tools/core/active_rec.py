@@ -3,6 +3,8 @@ from typing import Optional
 import json
 from icmplib import traceroute
 from dotenv import load_dotenv
+from nmap import nmap
+from nmap3 import nmap3
 from psutil import net_connections
 from .base import SecurityTool, SecurityToolResult
 
@@ -42,11 +44,12 @@ class ActiveReconnaissance(SecurityTool):
         Returns:
             SecurityToolResult: The result of the operation, either successful with data or failed with an error message.
         """
+
         operations = {
             'print_net_connections': self._print_net_connections,
             'check_traceroute': self._check_traceroute,
+            '_port_scan': self._port_scan,
         }
-
         if operation not in operations:
             return SecurityToolResult(False, None, f"Unsupported operation: {operation}")
 
@@ -143,3 +146,61 @@ class ActiveReconnaissance(SecurityTool):
             return result
         except Exception as e:
             raise Exception(f"Failed to retrieve traceroute for {host}: {str(e)}")
+
+    def _port_scan(self, host: str) -> str:
+        """
+        Scan the top ports for the specified host and return a formatted string with the scan results.
+
+        This method performs a scan of the top ports on the given host and returns a formatted string with details
+        about the open ports, their services, and the state of the ports.
+
+        Args:
+            host (str): The target host for the port scan.
+
+        Returns:
+            str: A formatted string containing the open ports and their corresponding services.
+
+        Raises:
+            Exception: If there is an error performing the port scan.
+
+        Example from cmd
+
+        <nmap -oX - --top-ports {ip}>
+        <nmap -sV --script ssl-enum-ciphers -p {ip}> also might to add -Pn
+        """
+        cache_key = f"port_scan_{host}"
+
+        # Check cache first to avoid redundant queries
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+
+        try:
+            #
+
+
+            print(f"Scanning top ports for host {host}...")
+            nm = nmap.PortScanner()
+
+            # Perform Nmap's top ports scan
+            # Scan the top 1000 ports (you can increase or decrease this number)
+            scan_results = nm.scan(host, '1-1024')  # Example scanning ports 1 to 1024
+
+            # Prepare the result as a formatted string
+            result = "Port \tState \tService\n"
+
+            # Check if the host is up and has open ports
+            if 'host' in scan_results and host in scan_results['host']:
+                for port in scan_results['host'][host]['tcp']:
+                    state = scan_results['host'][host]['tcp'][port]['state']
+                    service = scan_results['host'][host]['tcp'][port].get('name', 'N/A')
+                    result += f'{port:<5} {state:<10} {service}\n'
+            else:
+                result = "No open ports found or the host is unreachable.\n"
+
+            # Log operation and cache the result
+            self.log_operation("port_scan", {"host": host, "scan_results": scan_results})
+            self._cache[cache_key] = result
+
+            return result
+        except Exception as e:
+            raise Exception(f"Failed to perform port scan for {host}: {str(e)}")

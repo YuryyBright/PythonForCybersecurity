@@ -112,7 +112,8 @@ def main():
 
 
 
-    result = toolkit.execute_tool('active_reconnaissance', 'check_traceroute', target='192.168.127.12')
+    # result = toolkit.execute_tool('active_reconnaissance', 'check_traceroute', target='192.168.127.12')
+    result = toolkit.execute_tool('active_reconnaissance', '_port_scan', target='192.168.127.12')
 
 if __name__ == '__main__':
     main()
